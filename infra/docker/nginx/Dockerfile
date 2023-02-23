@@ -4,6 +4,7 @@ LABEL maintainer="ucan-lab <yes@u-can.pro>"
 SHELL ["/bin/ash", "-oeux", "pipefail", "-c"]
 
 ENV TZ=UTC
+ENV npm_config_cache=/work/backend/cache
 
 RUN apk update && \
   apk add --update --no-cache --virtual=.build-dependencies g++
