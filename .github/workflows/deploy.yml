@@ -56,7 +56,7 @@ jobs:
       - run: docker-compose exec -T web npm ci
         if: ${{ !steps.cache-npm-ci.outputs.cache-hit }}
 
-      - run: docker-compose exec -T web npm cache clean --force
+      # - run: docker-compose exec -T web npm cache clean --force
 
       - run: docker-compose exec -T web npm run prod
 
