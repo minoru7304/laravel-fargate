@@ -90,7 +90,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
       - name: Download ecspresso
-        uses: kayac/ecspresso@2
+        uses: kayac/ecspresso@v2
         with:
           version: v2.0.0
 
