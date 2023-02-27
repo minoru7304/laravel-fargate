@@ -4,7 +4,7 @@ service: example-prod-foobar
 service_definition: ecs-service-def.json
 task_definition: ecs-task-def.json
 timeout: "10m0s"
-plygins:
+plugins:
   - name: tfstate
     config:
       url: s3://minoru-terraform/example/prod/cicd/app_foobar_v1.0.0.tfstate
