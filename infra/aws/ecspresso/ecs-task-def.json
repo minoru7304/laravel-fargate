@@ -70,6 +70,10 @@
         {
           "name": "APP_KEY",
           "valueFrom": "/example/prod/foobar/APP_KEY"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "/example/prod/foobar/DB_PASSWORD"
         }
       ]
     }
