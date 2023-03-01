@@ -44,6 +44,10 @@ data "aws_subnet" "private" {
   }
 }
 
+data "aws_s3_bucket" "env_file" {
+  bucket = "minoru-${local.name_prefix}-${local.service_name}-env-file"
+}
+
 variable "azs" {
   type = map(object({
     public_cidr  = string
