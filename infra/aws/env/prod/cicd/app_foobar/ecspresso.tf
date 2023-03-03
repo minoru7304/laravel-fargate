@@ -28,6 +28,10 @@ data "aws_lb_target_group" "this" {
   name = "${local.name_prefix}-${local.service_name}"
 }
 
+data "aws_security_group" "db_foobar" {
+  name = "minoru-db-foobar"
+}
+
 data "aws_security_group" "vpc" {
   name = "minoru-vpc"
 }
@@ -38,6 +42,10 @@ data "aws_subnet" "private" {
   tags = {
     Name = "minoru-saito-private-later-1"
   }
+}
+
+data "aws_s3_bucket" "env_file" {
+  bucket = "minoru-${local.name_prefix}-${local.service_name}-env-file"
 }
 
 variable "azs" {
