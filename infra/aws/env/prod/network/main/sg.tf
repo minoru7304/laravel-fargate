@@ -73,3 +73,26 @@ resource "aws_security_group" "db_foobar" {
     Name = "minoru-db-foobar"
   }
 }
+
+resource "aws_security_group" "cache_foobar" {
+  name   = "minoru-cache-foobar"
+  vpc_id = "vpc-0be7eabe7f291ec71"
+
+  ingress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "minoru-cache-foobar"
+  }
+}

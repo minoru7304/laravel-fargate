@@ -28,6 +28,10 @@ data "aws_lb_target_group" "this" {
   name = "${local.name_prefix}-${local.service_name}"
 }
 
+data "aws_security_group" "cache_foobar" {
+  name = "minoru-cache-foobar"
+}
+
 data "aws_security_group" "db_foobar" {
   name = "minoru-db-foobar"
 }
