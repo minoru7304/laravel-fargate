@@ -15,7 +15,7 @@ resource "aws_vpc_endpoint" "ecr-dkr" {
 
 resource "aws_vpc_endpoint" "ecr-api" {
   vpc_id            = var.vpc_id
-  service_name = "com.amazonaws.${local.region}.ecr.dkr"
+  service_name = "com.amazonaws.${local.region}.ecr.api"
   vpc_endpoint_type = "Interface"
   security_group_ids = var.security_group_ids
   subnet_ids = [
