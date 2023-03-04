@@ -96,3 +96,29 @@ resource "aws_security_group" "cache_foobar" {
     Name = "minoru-cache-foobar"
   }
 }
+
+
+resource "aws_security_group" "vpc_endpoint" {
+  name        = "minoru-vpc_endpoint-sg"
+  description = "minoru-vpc_endpoint-sg"
+  vpc_id      = "vpc-0be7eabe7f291ec71"
+
+  ingress {
+    description = "HTTPS from VPC"
+    from_port   = 443
+    to_port     = 443
+    protocol    = "tcp"
+    cidr_blocks = ["172.35.0.0/16"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "minoru-vpc_endpoint-sg"
+  }
+}
