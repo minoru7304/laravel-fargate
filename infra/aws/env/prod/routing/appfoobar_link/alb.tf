@@ -79,7 +79,7 @@ resource "aws_lb_target_group" "foobar" {
     healthy_threshold   = 2
     interval            = 30
     matcher             = 200
-    path                = "/"
+    path                = "/tasks"
     port                = "traffic-port"
     protocol            = "HTTP"
     timeout             = 5
