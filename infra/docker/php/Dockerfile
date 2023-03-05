@@ -15,7 +15,13 @@ ENV TZ=UTC \
 COPY --from=composer:2.4 /usr/bin/composer /usr/bin/composer
 
 RUN apt-get update && \
-  apt-get -y install git libicu-dev libonig-dev libzip-dev unzip locales && \
+  apt-get install -y gnupg2 && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8C718D3B5072E1F5 && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29 && \
+  echo "deb http://repo.mysql.com/apt/debian/ buster mysql-8.0" > /etc/apt/sources.list.d/mysql.list && \
+  cat /etc/apt/sources.list.d/mysql.list && \
+  apt-get update && \
+  apt-get -y install git libicu-dev libonig-dev libzip-dev unzip locales mysql-client && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/* && \
   locale-gen en_US.UTF-8 && \
