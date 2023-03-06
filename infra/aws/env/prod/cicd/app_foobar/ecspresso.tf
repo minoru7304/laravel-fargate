@@ -48,7 +48,6 @@ data "aws_subnet" "private-a" {
 }
 
 data "aws_subnet" "private-c" {
-  for_each = var.azs
 
   tags = {
     Name = "minoru-saito-private-3"
