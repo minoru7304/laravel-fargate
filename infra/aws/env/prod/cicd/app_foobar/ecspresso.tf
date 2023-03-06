@@ -40,11 +40,18 @@ data "aws_security_group" "vpc" {
   name = "minoru-vpc"
 }
 
-data "aws_subnet" "private" {
-  for_each = var.azs
+data "aws_subnet" "private-a" {
 
   tags = {
     Name = "minoru-saito-private-later-1"
+  }
+}
+
+data "aws_subnet" "private-c" {
+  for_each = var.azs
+
+  tags = {
+    Name = "minoru-saito-private-3"
   }
 }
 
