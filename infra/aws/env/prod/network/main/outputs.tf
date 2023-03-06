@@ -14,6 +14,10 @@ output "security_group_cache_foobar_id" {
   value = aws_security_group.cache_foobar.id
 }
 
+output "security_group_execute_rds_lambda_id" {
+  value = aws_security_group.execute_rds_lambda_sg.id
+}
+
 # output "subnet_private" {
 #   value = aws_subnet.private
 # }
