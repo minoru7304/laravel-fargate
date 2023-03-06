@@ -83,3 +83,35 @@ resource "aws_vpc_endpoint" "ssmmessages" {
     Name = "minoru-com.amazonaws.${local.region}.ssmmessages-endpoint"
   }
 }
+
+# lambda to SNStopic
+resource "aws_vpc_endpoint" "sns" {
+  vpc_id       = var.vpc_id
+  service_name = "com.amazonaws.${local.region}.sns"
+  vpc_endpoint_type = "Interface"
+  security_group_ids = var.security_group_ids
+  subnet_ids = [
+    "subnet-0ab533658301117d7",
+    "subnet-0085c60e0ac02551a"
+  ]
+  private_dns_enabled = true
+  tags = {
+    Name = "minoru-com.amazonaws.${local.region}.sns-endpoint"
+  }
+}
+
+# lambda to lambda
+resource "aws_vpc_endpoint" "lambda" {
+  vpc_id       = var.vpc_id
+  service_name = "com.amazonaws.${local.region}.lambda"
+  vpc_endpoint_type = "Interface"
+  security_group_ids = var.security_group_ids
+  subnet_ids = [
+    "subnet-0ab533658301117d7",
+    "subnet-0085c60e0ac02551a"
+  ]
+  private_dns_enabled = true
+  tags = {
+    Name = "minoru-com.amazonaws.${local.region}.lambda-endpoint"
+  }
+}
