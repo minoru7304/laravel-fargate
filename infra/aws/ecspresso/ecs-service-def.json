@@ -38,7 +38,8 @@
         "{{ tfstate `data.aws_security_group.cache_foobar.id` }}"
       ],
       "subnets": [
-        "{{ tfstate `data.aws_subnet.private['a'].id` }}"
+        "{{ tfstate `data.aws_subnet.private['a'].id` }}",
+        "{{ tfstate `data.aws_subnet.private['c'].id` }}"
       ]
     }
   },

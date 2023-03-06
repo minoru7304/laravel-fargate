@@ -23,9 +23,9 @@ variable "azs" {
       public_cidr  = "172.35.1.0/24"  # minoru-saito-public-a
       private_cidr = "172.35.5.0/24"  # minoru-saito-private-later-1
     },
-    # c = {
-    #   public_cidr  = "172.35.2.0/24"  # minoru-saito-public-c
-    #   private_cidr = "172.35.10.0/24" # minoru-saito-private-later-2 1-d
-    # }
+    c = {
+      public_cidr  = "172.35.2.0/24"  # minoru-saito-public-c
+      private_cidr = "172.35.15.0/24" # minoru-saito-private-3
+    }
   }
 }
