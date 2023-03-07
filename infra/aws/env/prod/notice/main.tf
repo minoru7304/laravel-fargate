@@ -1,6 +1,6 @@
 # eventbridge
 resource "aws_cloudwatch_event_rule" "get_rds_record_rule" {
-  name        = "minoru_get_rds_record"
+  name                = "minoru_get_rds_record"
   schedule_expression = "cron(00 1 ? * MON-FRI *)" # 平日の10:00
 }
 
@@ -39,21 +39,21 @@ resource "aws_lambda_permission" "allow_notice_slack" {
 
 # lambda
 module "minoru_get_rds_record" {
-    source = "../../../module/lambda"
-    select_flag = 2
-    function_name = "minoru_get_rds_record"
-    function_role = data.terraform_remote_state.app.outputs.iam_role_notice_slack_arn
-    security_group_ids = [
-        data.terraform_remote_state.network_main.outputs.security_group_execute_rds_lambda_id
-        ]
+  source        = "../../../module/lambda"
+  select_flag   = 2
+  function_name = "minoru_get_rds_record"
+  function_role = data.terraform_remote_state.app.outputs.iam_role_notice_slack_arn
+  security_group_ids = [
+    data.terraform_remote_state.network_main.outputs.security_group_execute_rds_lambda_id
+  ]
 }
 
 module "minoru_notice_slack" {
-    source = "../../../module/lambda"
-    select_flag = 1
-    function_name = "minoru_notice_slack"
-    function_role = data.terraform_remote_state.app.outputs.iam_role_notice_slack_arn
-    security_group_ids = []
+  source             = "../../../module/lambda"
+  select_flag        = 1
+  function_name      = "minoru_notice_slack"
+  function_role      = data.terraform_remote_state.app.outputs.iam_role_notice_slack_arn
+  security_group_ids = []
 }
 
 

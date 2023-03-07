@@ -1,3 +1,3 @@
 locals {
-    service_name = "foobar"
+  service_name = "foobar"
 }

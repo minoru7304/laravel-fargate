@@ -30,9 +30,9 @@ resource "aws_lb" "this" {
 resource "aws_lb_listener" "http" {
   count = var.enable_alb ? 1 : 0
 
-#   certificate_arn   = aws_acm_certificate.root.arn
+  #   certificate_arn   = aws_acm_certificate.root.arn
   load_balancer_arn = aws_lb.this[0].arn
-  port              = "80" #443
+  port              = "80"   #443
   protocol          = "HTTP" #HTTPS
 
   default_action {

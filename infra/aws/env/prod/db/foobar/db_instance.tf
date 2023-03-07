@@ -27,8 +27,8 @@ resource "aws_db_instance" "this" {
   vpc_security_group_ids = [
     data.terraform_remote_state.network_main.outputs.security_group_db_foobar_id,
   ]
-#   availability_zone = "ap-northeast-1a"
-  port              = 3306
+  #   availability_zone = "ap-northeast-1a"
+  port = 3306
 
   // Database authentication
   iam_database_authentication_enabled = false

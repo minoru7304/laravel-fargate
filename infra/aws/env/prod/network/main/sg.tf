@@ -63,9 +63,9 @@ resource "aws_security_group" "db_foobar" {
   }
 
   ingress {
-    from_port   = 0
-    to_port     = 65535
-    protocol    = "tcp"
+    from_port       = 0
+    to_port         = 65535
+    protocol        = "tcp"
     security_groups = [aws_security_group.execute_rds_lambda_sg.id]
   }
 
@@ -89,12 +89,12 @@ resource "aws_security_group" "db_foobar" {
 }
 
 resource "aws_security_group_rule" "rds_lambda_ingress_rule" {
-  type              = "ingress"
-  from_port         = 0
-  to_port           = 65535
-  protocol          = "tcp"
-  source_security_group_id       = aws_security_group.db_foobar.id
-  security_group_id = aws_security_group.execute_rds_lambda_sg.id
+  type                     = "ingress"
+  from_port                = 0
+  to_port                  = 65535
+  protocol                 = "tcp"
+  source_security_group_id = aws_security_group.db_foobar.id
+  security_group_id        = aws_security_group.execute_rds_lambda_sg.id
 }
 
 resource "aws_security_group" "execute_rds_lambda_sg" {
