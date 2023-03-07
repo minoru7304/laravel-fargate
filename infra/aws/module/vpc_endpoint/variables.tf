@@ -1,5 +1,5 @@
 variable "vpc_id" {
-    type = string
+  type = string
 }
 
 # variable "service_name" {
@@ -11,7 +11,7 @@ variable "vpc_id" {
 # }
 
 variable "security_group_ids" {
-    type = list(string)
+  type = list(string)
 }
 
 # variable "private_subnet_ids" {

@@ -65,8 +65,8 @@ variable "azs" {
   }))
   default = {
     a = {
-      public_cidr  = "172.35.1.0/24"  # minoru-saito-public-a
-      private_cidr = "172.35.5.0/24"  # minoru-saito-private-later-1
+      public_cidr  = "172.35.1.0/24" # minoru-saito-public-a
+      private_cidr = "172.35.5.0/24" # minoru-saito-private-later-1
     },
     c = {
       public_cidr  = "172.35.2.0/24"  # minoru-saito-public-c

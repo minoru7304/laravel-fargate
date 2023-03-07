@@ -1,16 +1,16 @@
 variable "select_flag" {
-    type = number
+  type = number
 }
 
 variable "function_name" {
-    type = string
+  type = string
 }
 
 variable "function_role" {
-    type = string
+  type = string
 }
 
 variable "security_group_ids" {
-    type = list(string)
-    default = []
+  type    = list(string)
+  default = []
 }

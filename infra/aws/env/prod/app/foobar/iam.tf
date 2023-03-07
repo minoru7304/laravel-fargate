@@ -162,7 +162,7 @@ resource "aws_iam_role" "notice_slack" {
 
 resource "aws_iam_role_policy_attachment" "lambda_pvc_access" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
-  role = aws_iam_role.notice_slack.name
+  role       = aws_iam_role.notice_slack.name
 }
 
 resource "aws_iam_role_policy" "execute_statement" {
