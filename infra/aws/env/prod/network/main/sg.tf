@@ -1,6 +1,6 @@
 resource "aws_security_group" "web" {
   name   = "minoru-web"
-  vpc_id = "vpc-0be7eabe7f291ec71"
+  vpc_id = aws_vpc.this.id
 
   ingress {
     from_port   = 80
@@ -30,7 +30,7 @@ resource "aws_security_group" "web" {
 
 resource "aws_security_group" "vpc" {
   name   = "minoru-vpc"
-  vpc_id = "vpc-0be7eabe7f291ec71"
+  vpc_id = aws_vpc.this.id
 
   ingress {
     from_port = 0
@@ -53,7 +53,7 @@ resource "aws_security_group" "vpc" {
 
 resource "aws_security_group" "db_foobar" {
   name   = "minoru-db-foobar"
-  vpc_id = "vpc-0be7eabe7f291ec71"
+  vpc_id = aws_vpc.this.id
 
   ingress {
     from_port = 0
@@ -101,7 +101,7 @@ resource "aws_security_group" "execute_rds_lambda_sg" {
   name        = "minoru_execute_rds_lambda_sg"
   description = "Lambda Security Group"
 
-  vpc_id = "vpc-0be7eabe7f291ec71"
+  vpc_id = aws_vpc.this.id
 
   egress {
     from_port   = 0
@@ -118,7 +118,7 @@ resource "aws_security_group" "execute_rds_lambda_sg" {
 
 resource "aws_security_group" "cache_foobar" {
   name   = "minoru-cache-foobar"
-  vpc_id = "vpc-0be7eabe7f291ec71"
+  vpc_id = aws_vpc.this.id
 
   ingress {
     from_port = 0
@@ -143,7 +143,7 @@ resource "aws_security_group" "cache_foobar" {
 resource "aws_security_group" "vpc_endpoint" {
   name        = "minoru-vpc_endpoint-sg"
   description = "minoru-vpc_endpoint-sg"
-  vpc_id      = "vpc-0be7eabe7f291ec71"
+  vpc_id      = aws_vpc.this.id
 
   ingress {
     description = "HTTPS from VPC"

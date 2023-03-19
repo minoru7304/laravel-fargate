@@ -73,7 +73,7 @@ resource "aws_lb_target_group" "foobar" {
   port                 = 80
   protocol             = "HTTP"
   target_type          = "ip"
-  vpc_id               = "vpc-0be7eabe7f291ec71" # minoru-saito-vpc
+  vpc_id               = data.terraform_remote_state.network_main.outputs.vpc_this_id # minoru-saito-vpc
 
   health_check {
     healthy_threshold   = 2
