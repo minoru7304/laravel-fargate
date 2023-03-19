@@ -23,7 +23,7 @@ output "security_group_execute_rds_lambda_id" {
 # }
 
 output "vpc_this_id" {
-  value = "vpc-0be7eabe7f291ec71"
+  value = aws_vpc.this.id
 }
 
 output "db_subnet_group_this_id" {
